@@ -118,6 +118,22 @@ If you wish to use memcache to cache your metadata, you need to configure the
             </doctrine_mongodb:config>
         </container>
 
+.. tip::
+
+    If you want to use e.g. apcu within a PHP7 environment and also have DoctrineCache availabe, you can configure it easily via the parameters.yml:
+
+    .. code-block:: yaml
+    
+        # app/config/parameters.yml
+        doctrine_mongodb.odm.cache.apcu.class: "Doctrine\\Common\\Cache\\ApcuCache"
+        
+    .. code-block:: yaml
+        
+        # app/config/config.yml
+        document_managers:
+            default:
+                metadata_cache_driver: apcu
+     
 
 Mapping Configuration
 ~~~~~~~~~~~~~~~~~~~~~
